@@ -1,0 +1,52 @@
+level1
+-ke menu1
+-ke menu2
+-ke menu3
+
+level2
+*menu1
+-ke menu1.1
+-ke menu1.2
+-ke menu1.3
+
+*menu2
+-ke menu2.1
+-ke menu2.2
+-ke menu2.3
+
+*menu3
+-ke menu3.1
+-ke menu3.2
+-ke menu3.3
+
+level3
+*menu1.1
+-lakukan menu1.1
+
+*menu1.2
+-lakukan menu1.2
+
+*menu1.3
+-lakukan menu1.3
+
+*menu2.1
+-lakukan menu1.1
+
+*menu2.2
+-lakukan menu1.2
+
+*menu2.3
+-lakukan menu1.3
+
+feature:
+- printMenu
+
+todo:
+(-) means not implement
+(*) implemented
+- separate and make library
+- add callback function
+- function to fill menu name
+- change struct so it do not contain array of char but only pointer
+- use Doxygen
+
