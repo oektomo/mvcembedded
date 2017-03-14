@@ -3,10 +3,10 @@
 	typedef struct {
 		int stateNumber;
 		char namaMenu[30];
+		char* pointNamaMenu;
 		int pointer;
 		int levelAtas;
 		int levelBawah[5];
-		int levelBawahPanjang;
 		} menu;
 
 void copyChar(char* src, char* dst);
@@ -19,6 +19,8 @@ int main()
 	menu Menu[10];
 	int statePointer = 0;
 	fillMenu(Menu, 10);
+	char menuUtama[] = "UTAMA";
+	Menu[0].pointNamaMenu = menuUtama;
 	int status = 1;
 	int keypress;
 	while(status) {
@@ -47,6 +49,7 @@ void initializeState(menu* Menu, int levelAtas)
 	Menu->levelBawah[2] = 0;
 	Menu->levelBawah[3] = 0;
 	Menu->levelBawah[4] = 0;
+	Menu->pointNamaMenu = 0;
 }
 
 void fillMenu(menu* Menu, int levelAtas)
@@ -111,6 +114,8 @@ void fillMenu(menu* Menu, int levelAtas)
 void cetakMenu(menu* Menu, int stateNumber)
 {
 	printf("%s \n", Menu[stateNumber].namaMenu);
+	if(Menu[stateNumber].pointNamaMenu != NULL)
+		printf("%s \n", Menu[stateNumber].pointNamaMenu);
 	for(int i = 0; i < 5; i++) {
 		int menuBawah = Menu[stateNumber].levelBawah[i];
 		if (menuBawah == 0) break;
@@ -127,8 +132,9 @@ void cetakMenu(menu* Menu, int stateNumber)
 
 int keypressed(menu* Menu, int* statePointer)
 {
-	char keypress;
+	char keypress, waste;
 	scanf("%c", &keypress);
+	scanf("%c", &waste); // to get return character and waste it, since it's unused for now
 	printf("Respon input=%c\n", keypress);
 	if (keypress == 'q')
 		return 0;

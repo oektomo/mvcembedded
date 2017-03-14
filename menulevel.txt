@@ -47,6 +47,8 @@ todo:
 - separate and make library
 - add callback function
 - function to fill menu name
-- change struct so it do not contain array of char but only pointer
+* change struct so it do not contain array of char but only pointer
 - use Doxygen
 
+bug fix:
+* remove double char entered when entering single character and enter "\r\n"
